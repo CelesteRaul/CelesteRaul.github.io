@@ -60,7 +60,7 @@
 <meta name="msapplication-config" content="/img/faviconit/browserconfig.xml">
 </head>
 
-<body>
+<body onclick="onPlayMusica()">
 
 
   
@@ -1109,12 +1109,13 @@
 <!-- Loader -->
 <script>
   var prealoaderOption = $(window);
-  $(document).ready(function(){
-        player.playVideo();
-        $('#play-pause-music').attr('data-estado-music', 'play');
-        animMusicAnimIcon.play();
-        $('#modalMusica').modal('show');
-  });
+
+  // $(document).ready(function(){
+  //       player.playVideo();
+  //       $('#play-pause-music').attr('data-estado-music', 'play');
+  //       animMusicAnimIcon.play();
+  //       $('#modalMusica').modal('show');
+  // });
   prealoaderOption.on("load", function() {
 
     var preloader = $('.loader');
@@ -1213,7 +1214,12 @@
       // 4. The API will call this function when the video player is ready.
       function onPlayerReady(event) {
         event.target.setVolume(80);
-        event.target.playVideo();
+        //event.target.playVideo();
+      }
+
+      function onPlayMusica(){
+        animMusicAnimIcon.play();
+        player.playVideo();
       }
 
       // Pausar video

@@ -1190,8 +1190,13 @@
           height: '10',
           width: '10',
           playerVars: {
-            playlist: 'Fs3lKX1Fq6k',
-            loop: 1
+            // playlist: 'Fs3lKX1Fq6k',
+            // loop: 1
+
+            'autoplay': 1, // Activa la reproducción automática
+            'mute': 1,     // Silencia el video para permitir la reproducción automática
+            'playlist': 'Fs3lKX1Fq6k', // Tu ID de lista de reproducción o video
+            'loop': 1      // Habilita la repetición en bucle
           },
           events: {
             'onReady': onPlayerReady

@@ -69,7 +69,7 @@
 <div class="preloader-area">
 
   <div class="d-flex justify-content-center align-items-center h-100">
-    <div class="loader"></div>
+    <div class="loader" ></div>
   </div>
 
 </div>
@@ -1114,7 +1114,7 @@
   //   e.onPlayMusica();
   // });
   prealoaderOption.on("load", function() {
-
+    var play;
     var preloader = $('.loader');
     var preloaderArea = $('.preloader-area');
 
@@ -1127,9 +1127,9 @@
     // Cargo animacion AOS
     setTimeout(function() {
       AOS.init();
-      animMusicAnimIcon.play();
-      player.playVideo();
     }, 100);
+
+    
   });
 </script>
 
@@ -1179,8 +1179,12 @@
 
     <!-- Musica de fondo -->
     <script>
+      $(window).on('scroll',function(){
+        if ($(this).scrollTop() > 1){
+          onPlayMusica();
+        }
+      });
       
-
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
 
@@ -1200,6 +1204,7 @@
             playlist: 'Fs3lKX1Fq6k',
             loop: 1
 
+           
             
           },
           events: {
@@ -1207,7 +1212,6 @@
           }
         });
       }
-
       
       // 4. The API will call this function when the video player is ready.
       function onPlayerReady(event) {
@@ -1215,9 +1219,12 @@
         //event.target.playVideo();
       }
 
+      
       function onPlayMusica(){
+
         animMusicAnimIcon.play();
         player.playVideo();
+
       }
 
       // Pausar video
@@ -1267,7 +1274,7 @@
     let animMusicAnimIcon = bodymovin.loadAnimation({
       wrapper: svgContainerMusicAnimIcon,
       animType: 'svg',
-      autoplay: true,
+      autoplay: false,
       loop: true,
       path: "/img/reproductor.json"
     });

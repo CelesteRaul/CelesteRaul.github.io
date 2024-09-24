@@ -1172,11 +1172,7 @@
 
     <!-- Musica de fondo -->
     <script>
-      $(document).ready(function(){
-        $(this).attr('data-estado-music', 'play');
-        animMusicAnimIcon.play();
-        player.playVideo();
-      });
+      
 
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
@@ -1188,7 +1184,7 @@
       // 3. This function creates an <iframe> (and YouTube player)
       //    after the API code downloads.
       var player;
-      
+
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('player-musica-fondo', {
           height: '10',
@@ -1239,6 +1235,11 @@
         }
 
 
+      });
+      $(document).ready(function(){
+        $('#play-pause-music').attr('data-estado-music', 'play');
+        animMusicAnimIcon.play();
+        player.playVideo();
       });
     </script>
 

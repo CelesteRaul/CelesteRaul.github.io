@@ -60,7 +60,7 @@
 <meta name="msapplication-config" content="/img/faviconit/browserconfig.xml">
 </head>
 
-<body onclick="onPlayMusica()">
+<body>
 
 
   
@@ -1110,11 +1110,8 @@
 <script>
   var prealoaderOption = $(window);
 
-  // $(document).ready(function(){
-  //       player.playVideo();
-  //       $('#play-pause-music').attr('data-estado-music', 'play');
-  //       animMusicAnimIcon.play();
-  //       $('#modalMusica').modal('show');
+  // $(document).ready(function(e){
+  //   e.onPlayMusica();
   // });
   prealoaderOption.on("load", function() {
 
@@ -1130,8 +1127,9 @@
     // Cargo animacion AOS
     setTimeout(function() {
       AOS.init();
+      animMusicAnimIcon.play();
+      player.playVideo();
     }, 100);
-
   });
 </script>
 

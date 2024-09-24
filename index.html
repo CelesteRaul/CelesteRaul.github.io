@@ -1237,9 +1237,11 @@
 
       });
       $(document).ready(function(){
+        e.preventDefault();
         $('#play-pause-music').attr('data-estado-music', 'play');
         animMusicAnimIcon.play();
         player.playVideo();
+        $('#modalMusica').modal('show');
       });
     </script>
 

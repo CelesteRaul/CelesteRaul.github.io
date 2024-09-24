@@ -1198,15 +1198,12 @@
           }
         });
       }
+
       
-      function onPlayerReady(event) {
-        event.target.setVolume(80);
-        event.target.playVideo(); // Esto hará que el video (música) se reproduzca automáticamente
-      }
       // 4. The API will call this function when the video player is ready.
       function onPlayerReady(event) {
         event.target.setVolume(80);
-        // event.target.playVideo();
+        event.target.playVideo();
       }
 
       // Pausar video

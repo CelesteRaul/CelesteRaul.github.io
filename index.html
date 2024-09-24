@@ -1149,23 +1149,22 @@
         // Modifico el color del backdrop para este modal
         $('#modalMusica').on('show.bs.modal', function(e) {
           $('body').addClass("backdrop-modal-musica");
+        }).on('hide.bs.modal', function(e) {
+          $('body').removeClass("backdrop-modal-musica");
         })
-        // .on('hide.bs.modal', function(e) {
-        //   $('body').removeClass("backdrop-modal-musica");
-        // })
 
         // Btn play music modal
-        // $('body').on('click', '#play-music-modal', function(e) {
+        $('body').on('click', '#play-music-modal', function(e) {
 
-        //   e.preventDefault();
+          e.preventDefault();
 
-        //   $('#play-pause-music').attr('data-estado-music', 'play');
-        //   animMusicAnimIcon.play();
-        //   player.playVideo();
+          $('#play-pause-music').attr('data-estado-music', 'play');
+          animMusicAnimIcon.play();
+          player.playVideo();
 
-        //   $('#modalMusica').modal('hide');
+          $('#modalMusica').modal('hide');
 
-        // });
+        });
       </script>
 
 
@@ -1199,7 +1198,11 @@
           }
         });
       }
-
+      
+      function onPlayerReady(event) {
+        event.target.setVolume(80);
+        event.target.playVideo(); // Esto hará que el video (música) se reproduzca automáticamente
+      }
       // 4. The API will call this function when the video player is ready.
       function onPlayerReady(event) {
         event.target.setVolume(80);
@@ -1237,13 +1240,13 @@
 
 
       });
-      $(document).ready(function(e){
-        e.preventDefault();
-        // $('#play-pause-music').attr('data-estado-music', 'play');
-        animMusicAnimIcon.play();
-        player.playVideo();
-        $('#modalMusica').modal('show');
-      });
+      // $(document).ready(function(){
+      //   e.preventDefault();
+      //   $('#play-pause-music').attr('data-estado-music', 'play');
+      //   animMusicAnimIcon.play();
+      //   player.playVideo();
+      //   $('#modalMusica').modal('show');
+      // });
     </script>
 
 

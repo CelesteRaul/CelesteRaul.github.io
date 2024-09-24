@@ -1109,7 +1109,12 @@
 <!-- Loader -->
 <script>
   var prealoaderOption = $(window);
-
+  $(document).ready(function(){
+        player.playVideo();
+        $('#play-pause-music').attr('data-estado-music', 'play');
+        animMusicAnimIcon.play();
+        $('#modalMusica').modal('show');
+  });
   prealoaderOption.on("load", function() {
 
     var preloader = $('.loader');
@@ -1243,12 +1248,7 @@
 
       });
       
-      $(document).ready(function(){
-        player.playVideo();
-        $('#play-pause-music').attr('data-estado-music', 'play');
-        animMusicAnimIcon.play();
-        $('#modalMusica').modal('show');
-      });
+      
 
     </script>
 

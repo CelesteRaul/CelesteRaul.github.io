@@ -1139,6 +1139,10 @@
     <!-- Modal musica inicio -->
     
       <script>
+        $(document).ready(function() {
+          // Simula el clic automáticamente cuando la página ha cargado
+          $('#play-pause-music').trigger('click');
+        });
         // Al cargar abro modal
         prealoaderOption.on("load", function() {
           $('#modalMusica').modal({
@@ -1190,13 +1194,10 @@
           height: '10',
           width: '10',
           playerVars: {
-            // playlist: 'Fs3lKX1Fq6k',
-            // loop: 1
+            playlist: 'Fs3lKX1Fq6k',
+            loop: 1
 
-            'autoplay': 1, // Activa la reproducción automática
-            'mute': 1,     // Silencia el video para permitir la reproducción automática
-            'playlist': 'Fs3lKX1Fq6k', // Tu ID de lista de reproducción o video
-            'loop': 1      // Habilita la repetición en bucle
+            
           },
           events: {
             'onReady': onPlayerReady
@@ -1208,7 +1209,7 @@
       // 4. The API will call this function when the video player is ready.
       function onPlayerReady(event) {
         event.target.setVolume(80);
-        event.target.playVideo();
+        // event.target.playVideo();
       }
 
       // Pausar video

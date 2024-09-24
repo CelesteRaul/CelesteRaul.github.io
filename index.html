@@ -1149,22 +1149,23 @@
         // Modifico el color del backdrop para este modal
         $('#modalMusica').on('show.bs.modal', function(e) {
           $('body').addClass("backdrop-modal-musica");
-        }).on('hide.bs.modal', function(e) {
-          $('body').removeClass("backdrop-modal-musica");
         })
+        // .on('hide.bs.modal', function(e) {
+        //   $('body').removeClass("backdrop-modal-musica");
+        // })
 
         // Btn play music modal
-        $('body').on('click', '#play-music-modal', function(e) {
+        // $('body').on('click', '#play-music-modal', function(e) {
 
-          e.preventDefault();
+        //   e.preventDefault();
 
-          $('#play-pause-music').attr('data-estado-music', 'play');
-          animMusicAnimIcon.play();
-          player.playVideo();
+        //   $('#play-pause-music').attr('data-estado-music', 'play');
+        //   animMusicAnimIcon.play();
+        //   player.playVideo();
 
-          $('#modalMusica').modal('hide');
+        //   $('#modalMusica').modal('hide');
 
-        });
+        // });
       </script>
 
 
@@ -1238,7 +1239,7 @@
       });
       $(document).ready(function(e){
         e.preventDefault();
-        $('#play-pause-music').attr('data-estado-music', 'play');
+        // $('#play-pause-music').attr('data-estado-music', 'play');
         animMusicAnimIcon.play();
         player.playVideo();
         $('#modalMusica').modal('show');

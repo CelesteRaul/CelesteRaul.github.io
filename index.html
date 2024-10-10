@@ -107,6 +107,8 @@
       <div class="content-portada text-center">
 
 
+
+
         <!-- Idiomas -->
         
 
@@ -606,9 +608,15 @@
 
 <!-- Musica -->
 
+  
+
 
   <div id="controlador-musica">
     <div id="play-pause-music" data-estado-music= "play" class="music-anim-icon"></div>
+    <audio autoplay>
+      <source src="Una Calle Nos Separa.mp3" type="audio/mpeg">
+     
+    </audio>
   </div>
 
   <div id="player-musica-fondo"></div>
@@ -1142,7 +1150,7 @@
 
     <!-- Modal musica inicio -->
     
-      <script>
+      <!-- <script>
         
 
         
@@ -1172,13 +1180,13 @@
           $('#modalMusica').modal('hide');
 
         });
-      </script>
+      </script> -->
 
 
     
 
     <!-- Musica de fondo -->
-    <script>
+    <!-- <script>
       var isMusicPause = false;
       $(window).on('scroll',function(){
         if ($(this).scrollTop() > 1){
@@ -1271,7 +1279,7 @@
       
       
 
-    </script>
+    </script> -->
 
 
   
@@ -1284,7 +1292,7 @@
     let animMusicAnimIcon = bodymovin.loadAnimation({
       wrapper: svgContainerMusicAnimIcon,
       animType: 'svg',
-      autoplay: false,
+      autoplay: true,
       loop: true,
       path: "/img/reproductor.json"
     });

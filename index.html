@@ -953,6 +953,9 @@
         <div id="googleMap">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3336.1786694051348!2d-70.75587094186706!3d-33.25941085632403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662be8fbb20f98b%3A0x64a40b200108b526!2sCasa%20Irene%20EVENTOS!5e0!3m2!1ses!2scl!4v1727139460556!5m2!1ses!2scl"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
+        <div id="waze">
+          <p>Usa Waze para llegar a Casa Irene EVENTOS, B La Cañada del Carmen, 7, Región Metropolitana: <a href="https://waze.com/ul/h66jdvcm3j">https://waze.com/ul/h66jdvcm3j</a> </p>
+        </div>
       </div>
 
       <div class="modal-footer">
@@ -1021,8 +1024,8 @@
     // Mapas
     var latitudFiesta = -33.2594109;  //-33.4523721;
     var longitudFiesta = -70.7558709; //-70.6367947;
-    var latitudCeremonia = -33.4523721;
-    var longitudCeremonia = -70.6367947;
+    var latitudCeremonia = -33.2594109;
+    var longitudCeremonia = -70.7558709;
 
 
   </script>
@@ -2112,7 +2115,8 @@
     $('#modalMapa .modal-title').text(titleModalMapa);
 
     // Genero el link para ampliar mapa
-    $('.ampliar-mapa').attr('href', 'https://www.google.com/maps/search/?api=1&query=' + latitudMapa + ',' + longitudMapa);
+    // $('.ampliar-mapa').attr('href', 'https://www.google.com/maps/search/?api=1&query=' + latitudMapa + ',' + longitudMapa);
+    $('.ampliar-mapa').attr('href', 'https://waze.com/ul/h66jdvcm3j');
     
     // Cambio mapa
     //initMap(latitudMapa, longitudMapa);

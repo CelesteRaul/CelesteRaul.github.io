@@ -1598,9 +1598,60 @@
   });
 </script>
 
+
+<!-- USAR ESTE SCRIPT SI NO SE PUEDE LA REPRODUCCION AUTOMATICA -->
 <script>
+  // Bandera para comprobar si la música ya ha sido reproducida
+  var musicaIniciada = false;
+
+  // Función para iniciar la música
+  function iniciarMusica() {
+      var audio = $('#miAudio')[0];  // Obtener el elemento de audio
+      var boton = $('#play-pause-music');
+
+      // Reproducir música solo si aún no ha sido iniciada
+      if (!musicaIniciada) {
+          boton.attr('data-estado-music', 'play');
+          animMusicAnimIcon.play();  // Iniciar la animación si es necesario
+          audio.play();  // Reproducir el audio MP3
+          musicaIniciada = true;  // Marcar que la música ha comenzado
+      }
+  }
+
+  // Detectar la primera interacción del usuario en cualquier parte de la página
+  $(document).one('click touchstart', function() {
+      iniciarMusica();  // Iniciar la música en la primera interacción
+  });
+
+  // Controlador del botón de reproducción
+  $('body').on('click', '#play-pause-music', function(e) {
+      e.preventDefault();
+
+      var estadoMusic = $(this).attr('data-estado-music');
+      var audio = $('#miAudio')[0];
+
+      // Si está en pausa, reproducir
+      if (estadoMusic == 'pause') {
+          $(this).attr('data-estado-music', 'play');
+          animMusicAnimIcon.play();  // Iniciar la animación
+          audio.play();  // Reproducir el audio
+      }
+      // Si está en reproducción, pausar
+      else if (estadoMusic == 'play') {
+          $(this).attr('data-estado-music', 'pause');
+          audio.pause();  // Pausar el audio
+          animMusicAnimIcon.stop();  // Detener la animación
+      }
+  });
+</script>
+
+<!-- <script>
   $(window).ready(function(){
-    $('#play-pause-music').trigger('click');
+    setTimeout(function(){
+      $('#play-pause-music').trigger('click');
+
+    },3000);
+    
   })
 
   // Controlador de la musica
@@ -1627,7 +1678,7 @@
   });
 
   
-</script>
+</script> -->
 
 
 

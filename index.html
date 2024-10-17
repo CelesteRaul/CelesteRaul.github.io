@@ -1599,6 +1599,10 @@
 </script>
 
 <script>
+  $(window).ready(function(){
+    $('#play-pause-music').trigger('click');
+  })
+
   // Controlador de la musica
   $('body').on('click', '#play-pause-music', function(e) {
       e.preventDefault();

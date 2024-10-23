@@ -237,13 +237,13 @@
 
           <div class="info-box">
             <h6>Día</h6>
-            <p>Jueves 12 de diciembre - 17hs</p>
+            <p>Jueves 12 de diciembre - 19hs</p>
             <a href="#" class="boton addeventatc">
 
               <span class="nameBtn">Agendar</span>
 
-              <span class="start">2024-12-12 17:00:00</span>
-              <span class="end">2024-12-12 24:00:00</span>
+              <span class="start">2024-12-12 19:00:00</span>
+              <span class="end">2024-13-12 04:00:00</span>
               <span class="timezone">America/Santiago</span>
               <span class="title">Boda de Celeste y Raul (Ceremonia)</span>
 
@@ -562,8 +562,8 @@
           <li>
             <div title="" class="addeventatc">
               <span class="nameBtn">Agendar Ceremonia</span>
-              <span class="start">2024-12-12 17:00:00</span>
-              <span class="end">2024-12-12 19:00:00</span>
+              <span class="start">2024-12-12 19:00:00</span>
+              <span class="end">2024-13-12 04:00:00</span>
               <span class="timezone">America/Santiago</span>
               <span class="title">Boda de Celeste y Raúl (Ceremonia)</span>
 
@@ -671,7 +671,7 @@
             </div>
 
             <div class="form-group">
-              <input type="text" class="form-control" id="nombreAsistente" name='nombre' placeholder="Ingrese su nombre completo">
+              <input type="text" class="form-control" id="nombreAsistente" name='nombre' placeholder="Ingrese su nombre completo" required>
             </div>
 
 
@@ -1571,29 +1571,36 @@
   // Enviar asistencia
   $('body').on('click', '#sendAsistencia', function(e) {
 
-  e.preventDefault();
+    e.preventDefault();
+    
+    var nombre = $('#nombreAsistente').val();
+  
+    if (nombre.trim() === '') {
+      alert('Por favor, ingrese su nombre completo');
+      return false;
+    }
 
-  $("#sendAsistencia").prop("disabled", true);
+    $("#sendAsistencia").prop("disabled", true);
 
-  // Obtengo el Form.
-  var formulario = $("#formAsistencia")[0];
+    // Obtengo el Form.
+    var formulario = $("#formAsistencia")[0];
 
-  // Obtengo los datos del formulario
-  var datos = new FormData(formulario);
+    // Obtengo los datos del formulario
+    var datos = new FormData(formulario);
 
-  // Envio con fetch los datos mediante POST
-  fetch("https://script.google.com/macros/s/AKfycbzNHwiXa167-43o7kWHyhmBp9szLfI1L7pqNTvFkbg2-dl-iCqPZgx5XeIQTqYZU5KLrA/exec", {
-      method: "POST",
-      body: datos
-    })
-    .then(response => response.text())
-              .then(data => {
-                  alert(data); // Muestra un mensaje con la respuesta
-                  document.getElementById('formAsistencia').reset(); // Reinicia el formulario
-              })
-              .catch(error => {
-                  console.error('Error:', error);
-              });
+    // Envio con fetch los datos mediante POST
+    fetch("https://script.google.com/macros/s/AKfycbzNHwiXa167-43o7kWHyhmBp9szLfI1L7pqNTvFkbg2-dl-iCqPZgx5XeIQTqYZU5KLrA/exec", {
+        method: "POST",
+        body: datos
+      })
+      .then(response => response.text())
+                .then(data => {
+                    alert(data); // Muestra un mensaje con la respuesta
+                    document.getElementById('formAsistencia').reset(); // Reinicia el formulario
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
 
   });
 </script>
